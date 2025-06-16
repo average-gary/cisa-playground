@@ -301,11 +301,7 @@ def test_fullagg_scheme():
     m1, m2, m3 = b"jonas", b"tim", b"yannick"
 
     # DahLIAS round
-    # each signer runs (out_i, st_i) ← Sign() and sends out_i to the
-    # coordinator (note that pk_i, out_i, and m_i can be sent separately
-    # or all together to the coordinator);
     signers = [(sk1, pk1, m1), (sk2, pk2, m2), (sk3, pk3, m3)]
-
     sig = DahLIAS(signers)
     L = [(pk, m) for _, pk, m in signers]
     valid = Ver(L, sig)
